@@ -1,0 +1,7 @@
+.Keypad {
+  width: 200px;
+  height: 200px;
+  background: #020101;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
