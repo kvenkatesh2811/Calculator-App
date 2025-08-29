@@ -1,17 +1,23 @@
 import "./App.css";
 import Keypad from "./components/keypad/Keypad";
 import { useState } from "react";
+import { Parser } from "expr-eval";
+
 function App() {
   const [input, setInput] = useState("");
   function handleClick(value) {
-    // console.log("value",value)
     setInput(input + value);
-    // console.log("input+value",input+value)
   }
   function calculator() {
-    let outputVal = eval(input);
-    setInput(outputVal);
+    try {
+      const parser = new Parser();
+      let outputVal = parser.evaluate(input);
+      setInput(outputVal.toString());
+    } catch (error) {
+      setInput("Error");
+    }
   }
+
   function handleClear() {
     setInput("");
   }
